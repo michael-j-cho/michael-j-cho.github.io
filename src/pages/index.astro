@@ -78,7 +78,9 @@ const websiteSchema = {
     </div>
     <!-- Content -->
     <div class="relative z-10 p-8 md:p-12">
-      <div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
+      <div
+        class="flex flex-col items-center gap-8 md:flex-row md:justify-between"
+      >
         <!-- Main Content -->
         <div class="min-w-0 flex-1 space-y-6">
           <!-- Heading -->
@@ -128,13 +130,16 @@ const websiteSchema = {
             <img
               src="/profile.jpg"
               alt={SITE.title}
-              class="relative size-48 rounded-2xl object-cover grayscale transition-all duration-300 hover:grayscale-0 md:size-64"
+              class="relative size-80 rounded-2xl object-cover grayscale transition-all duration-300 hover:grayscale-0 md:size-64"
             />
           </div>
 
           <!-- Social Icons -->
           <div class="w-full">
-            <ul class="flex flex-wrap items-center justify-center gap-2" role="list">
+            <ul
+              class="flex flex-wrap items-center justify-center gap-2"
+              role="list"
+            >
               {
                 SOCIAL_LINKS.map(({ href, label }: SocialLink) => (
                   <li>
