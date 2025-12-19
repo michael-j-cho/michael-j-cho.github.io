@@ -47,18 +47,18 @@ export const NAV_LINKS: SocialLink[] = [
     label: 'Blog',
   },
   {
+    href: '/news',
+    label: 'News',
+  },
+  {
     href: '/about',
     label: 'About',
   },
-  {
-    href: '/news',
-    label: 'News',
-  }
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: 'https://github.com/username',
+    href: 'https://github.com/michael-j-cho',
     label: 'GitHub',
   },
   {
@@ -66,7 +66,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Twitter',
   },
   {
-    href: 'mailto:your@email.com',
+    href: 'mailto:mcho314@gatech.edu',
     label: 'Email',
   },
   {

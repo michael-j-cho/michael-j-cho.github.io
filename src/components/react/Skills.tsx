@@ -22,11 +22,12 @@ const technologies: Technologies = {
     { text: 'Linux', logo: 'simple-icons:linux' },
     { text: 'Ubuntu', logo: 'mdi:ubuntu' },
     { text: 'Debian', logo: 'simple-icons:debian' },
+    { text: 'Arch', logo: 'mdi:arch' },
     { text: 'Windows Server', logo: 'mdi:windows' },
     { text: 'Proxmox', logo: 'simple-icons:proxmox' },
     { text: 'Docker', logo: 'mdi:docker' },
     { text: 'Kubernetes', logo: 'mdi:kubernetes' },
-    { text: 'XEN', logo: 'lucide:box' },
+    { text: 'Apptainer', logo: 'lucide:box' },
   ],
   'Networking & Security': [
     { text: 'CISCO', logo: 'simple-icons:cisco' },

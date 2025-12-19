@@ -1,94 +1,20 @@
-/**
- * Optimized icon loader for Skills component
- * This helps with tree-shaking by importing icons only when needed
- */
-import { type IconType } from 'react-icons'
-import { FaQuestionCircle } from 'react-icons/fa'
-import {
-  SiLinux,
-  SiUbuntu,
-  SiDebian,
-  SiProxmox,
-  SiDocker,
-  SiKubernetes,
-  SiCisco,
-  SiPfsense,
-  SiFortinet,
-  SiPaloaltonetworks,
-  SiAnsible,
-  SiTerraform,
-  SiPuppet,
-  SiSaltproject,
-  SiGit,
-  SiFlux,
-  SiRancher,
-  SiOracle,
-  SiCloudflare,
-  SiCilium,
-  SiPortainer,
-  SiAsterisk,
-  SiApache,
-  SiNginx,
-  SiMysql,
-  SiWordpress,
-  SiCpanel,
-} from 'react-icons/si'
-import {
-  Shield,
-  Server,
-  Network,
-  Cloud,
-  HardDrive,
-  Lock,
-  Wifi,
-  Terminal,
-  CloudCog,
-  Box,
-} from 'lucide-react'
+import { Icon } from '@iconify/react'
 
-// Icon mapping - using direct imports for better tree-shaking
-export const iconMap: { [key: string]: IconType } = {
-  'simple-icons:linux': SiLinux,
-  'mdi:ubuntu': SiUbuntu,
-  'simple-icons:debian': SiDebian,
-  'mdi:windows': Server,
-  'simple-icons:proxmox': SiProxmox,
-  'mdi:docker': SiDocker,
-  'mdi:kubernetes': SiKubernetes,
-  'lucide:box': Box,
-  'simple-icons:cisco': SiCisco,
-  'simple-icons:pfsense': SiPfsense,
-  'simple-icons:fortinet': SiFortinet,
-  'simple-icons:paloaltonetworks': SiPaloaltonetworks,
-  'lucide:wifi': Wifi,
-  'lucide:network': Network,
-  'lucide:lock': Lock,
-  'lucide:shield': Shield,
-  'simple-icons:ansible': SiAnsible,
-  'simple-icons:terraform': SiTerraform,
-  'simple-icons:puppet': SiPuppet,
-  'simple-icons:saltproject': SiSaltproject,
-  'lucide:terminal': Terminal,
-  'mdi:git': SiGit,
-  'simple-icons:flux': SiFlux,
-  'simple-icons:rancher': SiRancher,
-  'lucide:cloud': Cloud,
-  'simple-icons:oracle': SiOracle,
-  'simple-icons:cloudflare': SiCloudflare,
-  'lucide:server': Server,
-  'lucide:cloud-cog': CloudCog,
-  'simple-icons:cilium': SiCilium,
-  'simple-icons:portainer': SiPortainer,
-  'lucide:hard-drive': HardDrive,
-  'simple-icons:asterisk': SiAsterisk,
-  'simple-icons:apache': SiApache,
-  'simple-icons:nginx': SiNginx,
-  'simple-icons:mysql': SiMysql,
-  'simple-icons:wordpress': SiWordpress,
-  'simple-icons:cpanel': SiCpanel,
+// Optional: Keep a small map ONLY for icons you want to override manually.
+// For example, if you want 'mdi:windows' to actually look like a Server icon.
+import { Server } from 'lucide-react'
+
+const customOverrides: { [key: string]: any } = {
+  // 'mdi:windows': Server, // Uncomment if you prefer the Server icon for Windows
 }
 
-export function getIcon(logo: string): IconType {
-  return iconMap[logo] || FaQuestionCircle
-}
+export function getIcon(iconName: string) {
+  // 1. Check if we have a manual override for this specific string
+  if (customOverrides[iconName]) {
+    return customOverrides[iconName]
+  }
 
+  // 2. Otherwise, return a wrapper around the dynamic Iconify component
+  // This works for 'mdi:arch', 'simple-icons:linux', 'lucide:box', etc. automatically.
+  return (props: any) => <Icon icon={iconName} {...props} />
+}

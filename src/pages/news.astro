@@ -1,0 +1,85 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import { SITE } from '@/consts'
+import newsItems from '@/data/news.json'
+
+interface Link {
+  text: string
+  url: string
+}
+
+interface NewsItem {
+  date: string
+  title: string
+  description?: string
+  links?: Link[]
+}
+
+// News Schema for SEO
+const newsSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": `News | ${SITE.title}`,
+  "description": "Latest news and updates about my research and projects.",
+  "url": `${SITE.href}/news`
+}
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="News" description="Latest news and updates about my research and projects." />
+  
+  <script type="application/ld+json" set:html={JSON.stringify(newsSchema)} />
+  
+  <Breadcrumbs items={[{ label: 'News', icon: 'lucide:newspaper' }]} />
+
+  <section class="flex flex-col gap-8">
+    <!-- Header -->
+    <div class="flex flex-col gap-4">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold">News</h1>
+        <p class="text-sm text-muted-foreground font-mono mt-1">
+          Recent updates and milestones
+        </p>
+      </div>
+    </div>
+
+    <!-- News List -->
+    <div class="flex flex-col">
+      {newsItems.map((item: NewsItem, index: number) => (
+        <div class={`flex flex-col md:flex-row gap-4 md:gap-8 py-6 ${index !== newsItems.length - 1 ? 'border-b border-border' : ''}`}>
+          <div class="md:w-32 flex-shrink-0">
+            <span class="text-sm font-mono font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+              {item.date}
+            </span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold leading-tight">{item.title}</h2>
+            {item.description && (
+              <p class="text-muted-foreground text-sm leading-relaxed">
+                {item.description}
+              </p>
+            )}
+            {item.links && item.links.length > 0 && (
+              <div class="flex flex-wrap gap-x-4 gap-y-2 mt-1">
+                <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Links:</span>
+                {item.links.map((link: Link) => (
+                  <a 
+                    href={link.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="text-xs font-medium text-primary hover:underline flex items-center gap-1"
+                  >
+                    {link.text}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
