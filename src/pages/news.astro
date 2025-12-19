@@ -15,7 +15,8 @@ import newsItems from '../data/news.yml';
 				width: 100%;
 				max-width: 960px;
 				margin: 0 auto;
-				padding: 3em 1em;
+				/* FIX 1: Changed top padding from 3em to 1em (or 0 if you want it tighter) */
+				padding: 1em 1em 3em 1em; 
 			}
 			.news-list {
 				list-style: none;
@@ -27,6 +28,10 @@ import newsItems from '../data/news.yml';
 				gap: 2rem;
 				padding: 1.5rem 0;
 				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			/* FIX 2: Remove top padding from the very first item */
+			.news-item:first-child {
+				padding-top: 0;
 			}
 			.news-item:last-child {
 				border-bottom: none;
@@ -41,7 +46,7 @@ import newsItems from '../data/news.yml';
 			.news-content {
 				flex: 1;
 				display: flex;
-				flex-direction: column; /* Stacks title, desc, and links vertically */
+				flex-direction: column;
 			}
 			.news-title {
 				font-weight: bold;
@@ -54,9 +59,8 @@ import newsItems from '../data/news.yml';
 				color: rgb(var(--gray-dark));
 			}
 			
-			/* NEW STYLES FOR LINKS ROW */
 			.news-links-row {
-				margin-top: 0.5rem; /* Spacing between description and links */
+				margin-top: 0.5rem;
 				font-size: 0.95rem;
 			}
 			.links-label {
@@ -95,7 +99,6 @@ import newsItems from '../data/news.yml';
 							
 							{item.description && <p class="news-desc">{item.description}</p>}
 
-							{/* Links moved to the bottom */}
 							{item.links && item.links.length > 0 && (
 								<div class="news-links-row">
 									<span class="links-label">Links: </span>
