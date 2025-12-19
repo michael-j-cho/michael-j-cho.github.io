@@ -35,7 +35,7 @@ import HeaderLink from './HeaderLink.astro';
 	</nav>
 </header>
 <style>
-	header {
+header {
 		margin: 0;
 		padding: 0 1em;
 		background: white;
@@ -44,6 +44,8 @@ import HeaderLink from './HeaderLink.astro';
 	h2 {
 		margin: 0;
 		font-size: 1em;
+		/* Add this line to prevent wrapping */
+		white-space: nowrap; 
 	}
 
 	h2 a,
@@ -60,8 +62,7 @@ import HeaderLink from './HeaderLink.astro';
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
-	}
-	nav a.active {
+	}	nav a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
@@ -69,9 +70,12 @@ import HeaderLink from './HeaderLink.astro';
 	.social-links a {
 		display: flex;
 	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
+@media (max-width: 720px) {
+		nav a {
+			padding: 0.5em 0.25em; /* Smaller padding on mobile */
+			font-size: 0.9rem;     /* Slightly smaller text */
 		}
-	}
-</style>
+		.social-links {
+			display: none; /* Keep hiding social icons on mobile to save space */
+		}
+	}</style>

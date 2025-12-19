@@ -46,9 +46,9 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
+  width: 100%;
+	max-width: 960px; 
+	margin: 0 auto;
 	padding: 3em 1em;
 }
 h1,
