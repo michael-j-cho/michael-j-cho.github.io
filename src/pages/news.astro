@@ -1,0 +1,119 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import newsItems from '../data/news.yml';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`News | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 100%;
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			.news-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.news-item {
+				display: flex;
+				gap: 2rem;
+				padding: 1.5rem 0;
+				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			.news-item:last-child {
+				border-bottom: none;
+			}
+			.news-date {
+				flex: 0 0 100px;
+				font-weight: bold;
+				color: rgb(var(--gray));
+				font-family: monospace;
+				font-size: 1.1rem;
+			}
+			.news-content {
+				flex: 1;
+				display: flex;
+				flex-direction: column; /* Stacks title, desc, and links vertically */
+			}
+			.news-title {
+				font-weight: bold;
+				color: rgb(var(--black));
+				margin-bottom: 0.25rem;
+				display: block;
+			}
+			.news-desc {
+				margin: 0;
+				color: rgb(var(--gray-dark));
+			}
+			
+			/* NEW STYLES FOR LINKS ROW */
+			.news-links-row {
+				margin-top: 0.5rem; /* Spacing between description and links */
+				font-size: 0.95rem;
+			}
+			.links-label {
+				font-weight: bold;
+				color: rgb(var(--gray-dark));
+			}
+			.news-link {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			.news-link:hover {
+				text-decoration: underline;
+			}
+
+			@media (max-width: 720px) {
+				.news-item {
+					flex-direction: column;
+					gap: 0.5rem;
+				}
+				.news-date {
+					flex: none;
+					color: var(--accent);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<ul class="news-list">
+				{newsItems.map((item: any) => (
+					<li class="news-item">
+						<div class="news-date">{item.date}</div>
+						<div class="news-content">
+							<span class="news-title">{item.title}</span>
+							
+							{item.description && <p class="news-desc">{item.description}</p>}
+
+							{/* Links moved to the bottom */}
+							{item.links && item.links.length > 0 && (
+								<div class="news-links-row">
+									<span class="links-label">Links: </span>
+									{item.links.map((link: any, index: number) => (
+										<>
+											<a href={link.url} target="_blank" class="news-link">
+												{link.text}
+											</a>
+											{index < item.links.length - 1 && ", "}
+										</>
+									))}
+								</div>
+							)}
+						</div>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
