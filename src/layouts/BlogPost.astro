@@ -16,9 +16,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: calc(100% - 2em);
+				/* FIX 1: Use 100% width and center it properly */
+				width: 100%;
 				max-width: 100%;
-				margin: 0;
+				margin: 0 auto;
 			}
 			.hero-image {
 				width: 100%;
@@ -28,10 +29,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: 0 auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
+				
+				/* FIX 2: Force image to be responsive so it doesn't overflow on mobile */
+				max-width: 100%;
+				height: auto;
 			}
 			.prose {
-				width: 720px;
-				max-width: calc(100% - 0em);
+				/* FIX 3: Change fixed width to fluid width */
+				width: 100%;
+				max-width: 720px;
 				margin: auto;
 				padding: 1em;
 				color: rgb(var(--gray-dark));
