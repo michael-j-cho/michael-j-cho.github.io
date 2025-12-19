@@ -14,15 +14,19 @@ import '../styles/global.css'
 	<body>
 		<Header />
 		<main>
-			<h2 class="text-6xl font-bold text-blue-600 hover:text-red-500 mb-2">
-				Michael Cho
+			<h4 class="text-6xl font-bold text-blue-600 hover:text-red-500 mb-2">
+        Hello, I'm Michael
 			</h1>
-			<h5 class="text-xl text-gray-600 mb-6">
-				Ph.D. Student | NSF GRFP | ECE
-				<br />
-				<a href="https://irl.gatech.edu/people/" target="_blank" class="text-blue-600 hover:underline">Inan Research Lab</a> @ Georgia Institute of Technology
+      <h4 class="text-xl text-gray-600 mb-6">
+				<span id="typed-text"></span>
+        </br>
+			<!-- <h5 class="text-xl text-gray-600 mb-6"> -->
+			<!-- 	Ph.D. Student | NSF GRFP | ECE -->
+			<!-- 	<br /> -->
 			</h2>
-
+      <h5>
+      <a href="https://irl.gatech.edu/people/" target="_blank" class="text-blue-600 hover:underline">Inan Research Lab</a> @ GT
+      </h5>
 			<p>
 				My research focuses on machine learning applications for biomedical and mental health, with a particular emphasis on cardiovascular signal processing. I apply both deep learning and classical signal processing techniques, combined with statistical analysis, to advance data-driven healthcare solutions. Additionally, I explore alternative machine learning paradigms that enhance performance while improving the security and privacy of sensitive biomedical data.
 			</p>
@@ -31,42 +35,25 @@ import '../styles/global.css'
 				<strong>Email:</strong> <a href="mailto:mcho314@gatech.edu">mcho314@gatech.edu</a>
 			</p>
 
-			<hr class="my-8" />
-
-			<h3 class="text-2xl font-bold mb-4">News</h3>
-			<ul class="list-disc pl-5 space-y-2">
-				<li>
-					<strong>[2024.6]</strong> Seven ECE Graduates Receive NSF Research Fellowship <a href="https://ece.gatech.edu/news/2024/06/seven-ece-graduates-receive-nsf-research-fellowship" target="_blank">[Article]</a>
-				</li>
-				<li>
-					<strong>[2024.5]</strong> Honored by Vice Chancellor for Academic Affairs, Sharon Jones, at the University of Washington Bothell Student Academic Showcase. <a href="https://www.uwb.edu/connected-learning/events/academic-showcase/schedule" target="_blank">[Link]</a>
-				</li>
-				<li>
-					<strong>[2024.5]</strong> Incarceration to Innovation - News from School of Science, Technology, Engineering & Mathematics at UW Bothell. <a href="https://www.uwb.edu/stem/news/2024/05/23/incarceration-to-innovation" target="_blank">[Article]</a>
-				</li>
-				<li>
-					<strong>[2024.4]</strong> Awarded the National Science Foundation (NSF) Graduate Research Fellowship Program (GRFP).
-				</li>
-				<li>
-					<strong>[2022.4]</strong> Independent Measurement Platform for Federated Learning Models on Android Devices - Gabriel E. Gallardo Symposium at UW. <a href="https://drive.google.com/file/d/1nzdwyjFsvyCo1RmhYOt6HbGgYHKJtyFY/view?usp=sharing" target="_blank">[Poster]</a>
-				</li>
-				<li>
-					<strong>[2022.3]</strong> Giving a voice to the community through excellence in machine learning research - The Daily at UW. <a href="https://www.dailyuw.com/news/community/giving-a-voice-to-the-community-through-excellence-in-machine-learning-research/article_d0475226-a2b1-11ec-a341-43c5c28a925d.html" target="_blank">[Article]</a>
-				</li>
-				<li>
-					<strong>[2022.1]</strong> From Prison to Purpose - News at University of Washington, Bothell. <a href="https://www.uwb.edu/news/january-2022/from-prison-to-purpose" target="_blank">[Article]</a>
-				</li>
-				<li>
-					<strong>[2021.12]</strong> Awarded the Mary Gates Research Scholarship - University of Washington.
-				</li>
-				<li>
-					<strong>[2021.11]</strong> Caring Without Sharing: A Federated Learning Crowdsensing Framework - EAI Mobiquitous. <a href="https://arxiv.org/pdf/2201.07980" target="_blank">[Paper]</a> <a href="https://www.youtube.com/watch?v=nOe66CKid-8" target="_blank">[Video]</a>
-				</li>
-				<li>
-					<strong>[2021.10]</strong> Android On-device Federated Learning of PyTorch Models with Flower - SACNAS National Diversity in STEM. <a href="https://drive.google.com/file/d/12dYdfp5pH3eo0p8J2uI1Ic1sm1xKnFFr/view?usp=sharing" target="_blank">[PDF]</a>
-				</li>
-			</ul>
 		</main>
 		<Footer />
+    <script>
+            import Typed from 'typed.js';
+
+            const typed = new Typed('#typed-text', {
+                strings: [
+                  'Ph.D. Student', 
+                  'Researcher', 
+                  'Developer',
+                  'Engineer',
+                  'Life-Long Learner'
+                ],
+                typeSpeed: 60,   // Speed in ms of typing
+                backSpeed: 30,   // Speed in ms of deleting
+                backDelay: 1500, // Time to wait before deleting
+                startDelay: 500, // Time to wait before starting
+                loop: true       // Loop the animation
+            });
+        </script>
 	</body>
 </html>
