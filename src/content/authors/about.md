@@ -3,7 +3,7 @@ name: 'Michael Cho'
 avatar: '/public/profile.jpg'
 ---
 
-![Arizona Landscapes](/public/about/me-overlook.jpg)
+![Arizona Landscapes](/public/about/me-overlook.jpeg)
 
 > "Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less."
 >
