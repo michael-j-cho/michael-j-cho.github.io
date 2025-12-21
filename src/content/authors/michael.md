@@ -1,5 +1,5 @@
 ---
 name: 'Michael Cho'
 avatar: '/profile.jpg'
-bio: 'I am a Ph.D. student at Georgia Institute of Technology and researcher with the Inan Research Lab. Currently, I am researching deep learning and machine learning applications for'
+bio: 'Researching at Georgia Tech Inan Research Lab, training for the platform, and reading into the future. A Ph.D. student and record-holding weightlifter focused on turning hardship into insight through science and philosophy.'
 ---

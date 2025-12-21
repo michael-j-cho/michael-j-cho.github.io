@@ -21,7 +21,7 @@ const technologies: Technologies = {
     { text: 'Arch', logo: 'simple-icons:archlinux' },
     { text: 'Ubuntu', logo: 'simple-icons:ubuntu' },
     { text: 'macOS', logo: 'simple-icons:macos' },
-    { text: 'Windows', logo: 'mdi:windows' },
+    // { text: 'Windows', logo: 'mdi:windows' },
     { text: 'Windows Server', logo: 'mdi:microsoft-windows' },
     { text: 'Android', logo: 'simple-icons:android' },
     { text: 'iOS', logo: 'simple-icons:ios' },

@@ -125,7 +125,7 @@
     :where(img, video, figure, .expressive-code):not(
         :where(.not-prose, .not-prose *)
       ) {
-      @apply mx-auto my-6;
+      @apply mx-auto my-6 rounded-xl;
     }
 
     :where(pre):not(:where(.not-prose, .not-prose *)) {

@@ -1,11 +1,12 @@
 ---
-import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import PageHead from '@/components/PageHead.astro'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
-import { Icon } from 'astro-icon/components'
+// Import the Markdown file as a component.
+// Note: Ensure the path matches your actual folder structure (e.g., ../content/...)
+import { Content as AboutContent } from '../content/authors/about.md'
 
-// Person Schema for About page
+// Person Schema for About page SEO
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -13,127 +14,24 @@ const personSchema = {
   url: SITE.href,
   description: SITE.description,
 }
-
-// Experience Timeline - Customize with your own experience
-type ExperienceItem = {
-  role: string
-  company: string
-  period: string
-  current?: boolean
-  icon: string
-  key: string
-}
-
-// Customize your experience here
-const experience: ExperienceItem[] = [
-  {
-    role: 'Your Current Role',
-    company: 'Current Company',
-    period: '2022 - Present',
-    current: true,
-    icon: 'lucide:briefcase',
-    key: 'Brief description of your current role and key achievements • Add more details about your responsibilities and accomplishments',
-  },
-  {
-    role: 'Previous Role',
-    company: 'Previous Company',
-    period: '2020 - 2022',
-    icon: 'lucide:server',
-    key: 'Description of your previous role and achievements • Highlight key projects or responsibilities you had in this position',
-  },
-  {
-    role: 'Earlier Role',
-    company: 'Earlier Company',
-    period: '2018 - 2020',
-    icon: 'lucide:code',
-    key: 'Description of your earlier role and achievements • Show your career progression and growth over time',
-  },
-]
 ---
 
 <Layout class="max-w-3xl">
   <PageHead slot="head" title="About" />
 
-  <!-- Person Schema for About page SEO -->
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
-  <Breadcrumbs items={[{ label: 'About', icon: 'lucide:user' }]} />
-
   <section class="flex flex-col gap-8">
-    <!-- Header -->
     <div class="flex flex-col gap-4">
       <div>
         <h1 class="text-3xl font-bold md:text-4xl">About</h1>
-        <p class="text-muted-foreground mt-1 font-mono text-sm">
-          Learn more about this blog
-        </p>
+        <!-- <p class="text-muted-foreground mt-1 font-mono text-sm"> -->
+        <!--   Learn more about this blog -->
+        <!-- </p> -->
       </div>
     </div>
-
-    <!-- Main Content -->
     <div class="prose prose-sm dark:prose-invert max-w-none space-y-6">
-      <p class="text-muted-foreground leading-relaxed">
-        Welcome to <strong class="text-primary">{SITE.title}</strong>! This page
-        will be updated soon!
-      </p>
-
-      <!-- <p class="text-muted-foreground leading-relaxed"> -->
-      <!--   You can edit this page by modifying <code -->
-      <!--     class="bg-muted rounded px-1.5 py-0.5 text-sm" -->
-      <!--     >src/pages/about.astro</code -->
-      <!--   >. -->
-      <!-- </p> -->
+      <AboutContent />
     </div>
-
-    <!-- Experience Timeline -->
-    <section class="mt-8">
-      <div class="mb-6">
-        <h2 class="mb-2 text-2xl font-semibold">Experience</h2>
-        <p class="text-muted-foreground text-sm">
-          Professional journey and achievements
-        </p>
-      </div>
-
-      <div class="space-y-6">
-        {
-          experience.map((exp, index) => (
-            <div class="relative">
-              {index < experience.length - 1 && (
-                <div
-                  class="bg-border absolute top-8 bottom-0 left-[11px] w-px"
-                  aria-hidden="true"
-                />
-              )}
-
-              <div class="flex gap-4">
-                <div
-                  class={`ring-background relative z-10 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full ring-4 ${
-                    exp.current
-                      ? 'bg-primary text-primary-foreground shadow-primary/20 shadow-lg'
-                      : 'bg-muted text-muted-foreground'
-                  }`}
-                >
-                  <Icon name={exp.icon} class="size-3.5" />
-                </div>
-
-                <div class="min-w-0 flex-1 pb-2">
-                  <div class="mb-1">
-                    <h3 class="text-lg leading-tight font-semibold">
-                      {exp.role}
-                    </h3>
-                    <p class="text-muted-foreground text-sm">
-                      {exp.company} · {exp.period}
-                    </p>
-                  </div>
-                  <p class="text-muted-foreground/90 mt-2 text-sm leading-relaxed">
-                    {exp.key}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
   </section>
 </Layout>
