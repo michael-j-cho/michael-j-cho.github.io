@@ -1,6 +1,5 @@
 ---
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
-import Disqus from '@/components/Disqus.astro'
 import Link from '@/components/Link.astro'
 import PostHead from '@/components/PostHead.astro'
 import PostNavigation from '@/components/PostNavigation.astro'
@@ -10,7 +9,6 @@ import TOCHeader from '@/components/TOCHeader.astro'
 import TOCSidebar from '@/components/TOCSidebar.astro'
 import { badgeVariants } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import {
   getAdjacentPosts,
@@ -175,7 +173,7 @@ try {
                 {authors.map((author) => (
                   <div class="flex items-center gap-x-1.5">
                     <Image
-                      <!-- src={author.avatar} -->
+                      src={author.avatar}
                       alt={author.name}
                       width={20}
                       height={20}
@@ -355,4 +353,3 @@ try {
     }
   }
 </script>
-
