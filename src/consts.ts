@@ -58,27 +58,41 @@ export const NAV_LINKS: SocialLink[] = [
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
+    href: 'https://www.linkedin.com/in/michael-j-cho/',
+    label: 'LinkedIn',
+  },
+  {
     href: 'https://github.com/michael-j-cho',
     label: 'GitHub',
   },
   {
-    href: 'https://twitter.com/username',
-    label: 'Twitter',
+    href: '/files/20251221-cv-cho.pdf',
+    label: 'CV',
   },
+  {
+    href: 'https://scholar.google.com/citations?user=AvatR0UAAAAJ&hl=en',
+    label: 'Google Scholar'
+  },
+  // {
+  //   href: 'https://twitter.com/username',
+  //   label: 'Twitter',
+  // },
   {
     href: 'mailto:mcho314@gatech.edu',
     label: 'Email',
   },
-  {
-    href: '/rss.xml',
-    label: 'RSS',
-  },
+  // {
+  //   href: '/rss.xml',
+  //   label: 'RSS',
+  // },
 ]
 
 export const ICON_MAP: IconMap = {
   Website: 'lucide:globe',
   GitHub: 'lucide:github',
+  CV: 'lucide:file-user',
   LinkedIn: 'lucide:linkedin',
+  'Google Scholar': 'academicons:google-scholar',
   Twitter: 'lucide:twitter',
   Email: 'lucide:mail',
   RSS: 'lucide:rss',

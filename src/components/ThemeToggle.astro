@@ -16,11 +16,11 @@ import { Icon } from 'astro-icon/components'
 </Button>
 
 <script is:inline data-astro-rerun>
-  (() => {
+  ;(() => {
     const theme = (() => {
       const stored = localStorage?.getItem('theme') ?? ''
       if (['dark', 'light'].includes(stored)) return stored
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
+      return window.matchMedia('(prefers-color-scheme: light)').matches // This is where we toggle theme colors
         ? 'dark'
         : 'light'
     })()
