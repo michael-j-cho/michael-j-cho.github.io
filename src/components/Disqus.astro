@@ -7,7 +7,7 @@ interface Props {
 
 const { identifier, title, url } = Astro.props
 // Get shortname from build-time env var, with fallback for client-side check
-const disqusShortname = import.meta.env.PUBLIC_DISQUS_SHORTNAME || 'merox'
+const disqusShortname = import.meta.env.PUBLIC_DISQUS_SHORTNAME || 'michael-cho'
 
 // Sanitize inputs to prevent XSS
 const sanitize = (str: string) => {
@@ -62,7 +62,7 @@ const pageUrl = url || Astro.url.href
     'use strict'
 
     // Get shortname - check env var first, then fallback
-    const shortname = disqusShortname || 'merox'
+    const shortname = disqusShortname || 'michael-cho'
     
     if (!shortname || shortname === '') {
       console.warn('Disqus shortname not configured')

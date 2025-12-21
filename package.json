@@ -1,9 +1,9 @@
 {
-  "name": "merox-erudite",
+  "name": "michael-cho-website",
   "type": "module",
   "version": "1.0.0",
   "description": "An enhanced version of astro-erudite with newsletter integration, Disqus comments, analytics support, and additional features",
-  "author": "merox",
+  "author": "Michael Cho",
   "license": "MIT",
   "repository": {
     "type": "git",
