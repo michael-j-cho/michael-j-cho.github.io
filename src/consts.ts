@@ -66,12 +66,12 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'GitHub',
   },
   {
-    href: '/files/20251221-cv-cho.pdf',
-    label: 'CV',
-  },
-  {
     href: 'https://scholar.google.com/citations?user=AvatR0UAAAAJ&hl=en',
     label: 'Google Scholar'
+  },
+  {
+    href: '/files/20251221-cv-cho.pdf',
+    label: 'CV',
   },
   // {
   //   href: 'https://twitter.com/username',
