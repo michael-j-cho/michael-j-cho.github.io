@@ -16,7 +16,7 @@ authors: ['michael']
 
 ### Output
 
-![blog placeholder](../../assets/blog-placeholder-about.jpg)
+![blog placeholder](../../assets/blog/markdown-style-guide/markdown-style-guide.jpg)
 
 ## Blockquotes
 
