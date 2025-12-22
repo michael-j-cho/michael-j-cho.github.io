@@ -5,6 +5,10 @@ date: Dec 22 2025
 image: ../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow.png
 authors:
   - michael
+tags:
+  - Code
+  - Neovim
+  - HPC
 ---
 # Coding on a High Performance Cluster (HPC)
 
