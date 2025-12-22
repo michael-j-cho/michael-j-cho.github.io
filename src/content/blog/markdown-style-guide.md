@@ -7,10 +7,7 @@ authors: ['michael']
 ---
 
 
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
-
 ## Images
-![](../../assets/blog/markdown-style-guide/Images%201.jpg)
 ### Syntax
 
 ```markdown
