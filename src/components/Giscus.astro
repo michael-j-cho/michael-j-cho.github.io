@@ -11,8 +11,12 @@
 </section>
 
 <script is:inline>
+  function getGiscusTheme() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'light'
+    return theme === 'dark' ? 'transparent_dark' : 'light'
+  }
+
   function loadGiscus() {
-    // Remove existing giscus script if any
     const existingScript = document.querySelector(
       'script[src*="giscus.app/client.js"]',
     )
@@ -21,18 +25,17 @@
     const script = document.createElement('script')
     script.src = 'https://giscus.app/client.js'
 
-    // CONFIGURATION: Replace these with your own IDs from https://giscus.app
     script.setAttribute('data-repo', 'michael-j-cho/michael-j-cho.github.io')
-    script.setAttribute('data-repo-id', 'R_kgDOQrUwSg') // Placeholder - Update with your actual Repo ID
+    script.setAttribute('data-repo-id', 'R_kgDOQrUwSg')
     script.setAttribute('data-category', 'Blog')
-    script.setAttribute('data-category-id', 'DIC_kwDOQrUwSs4C0Imd') // Placeholder - Update with your actual Category ID
+    script.setAttribute('data-category-id', 'DIC_kwDOQrUwSs4C0In3')
 
     script.setAttribute('data-mapping', 'pathname')
     script.setAttribute('data-strict', '0')
     script.setAttribute('data-reactions-enabled', '0')
     script.setAttribute('data-emit-metadata', '0')
     script.setAttribute('data-input-position', 'bottom')
-    script.setAttribute('data-theme', 'transparent_dark')
+    script.setAttribute('data-theme', getGiscusTheme())
     script.setAttribute('data-lang', 'en')
     script.setAttribute('data-loading', 'lazy')
     script.crossOrigin = 'anonymous'
@@ -45,9 +48,34 @@
     }
   }
 
+  function updateGiscusTheme() {
+    const theme = getGiscusTheme()
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe) return
+
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      'https://giscus.app',
+    )
+  }
+
   // Initial load
   loadGiscus()
 
   // Re-run on Astro view transitions
   document.addEventListener('astro:page-load', loadGiscus)
+
+  // Listen for theme changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === 'attributes' &&
+        mutation.attributeName === 'data-theme'
+      ) {
+        updateGiscusTheme()
+      }
+    })
+  })
+
+  observer.observe(document.documentElement, { attributes: true })
 </script>
