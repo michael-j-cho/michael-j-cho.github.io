@@ -6,15 +6,16 @@ image: ../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-ap
 authors:
   - michael
 tags:
-  - Code
   - Neovim
   - HPC
+  - Containers
 ---
 # Coding on a High Performance Cluster (HPC)
 
 Finding the optimal setup for coding on any platform, operating system, and even computing domain has led me to switch to Neovim/Vim. A whole article can be written (and many have...) about the advantages and productivity boost that developers and coders obtain from Neovim, but in short, it's gamified my coding sessions, and the responsiveness and speed are unmatched. Most importantly, because Neovim runs in the terminal, I'm able to quickly setup my IDE of choice by installing its package and pulling my configs from a repo. 
 
 However, with my foray into deep learning and leveraging GPU compute resources — I ran into a problem: HPC clusters like Purdue Anvil, Delta AI, and PACE Phoenix have enterprise operating systems that Neovim is not fully compatible with. Enter [Apptainer](https://apptainer.org/). 
+
 
 ```
 Bootstrap: docker
