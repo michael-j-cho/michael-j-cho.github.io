@@ -1,21 +1,36 @@
 ---
-title: Neovim (with all the plugins) on HPC clusters
-description: I use Neovim btw... 😂 Here's my setup on high performance clusters — with all the bells and whistles.
+title: Neovim as an IDE on High-Performance Computing Clusters
+description: Here's a short tutorial on installing Neovim v11.5 on HPC clusters using Apptainer.
 date: Dec 22 2025
 image: ../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow.png
 authors:
   - michael
 tags:
-  - Neovim
-  - HPC
-  - Containers
+  - neovim
+  - high-performance-computing
+  - containers
 ---
-# Coding on a High Performance Cluster (HPC)
+# Neovim on High Performance Computing Clusters
+---
+For my workflow, I jump from several different servers and high performance computing (HPC) clusters for dataset management, processing, and deep learning applications leveraging graphics processing units (GPUs). In the past, I would use Visual Studio Code and Remote SSH to access these endpoints, modify code, and execute commands. However, I recently fell in love with the enjoyment, simplicity, and speed of Neovim. 
 
-Finding the optimal setup for coding on any platform, operating system, and even computing domain has led me to switch to Neovim/Vim. A whole article can be written (and many have...) about the advantages and productivity boost that developers and coders obtain from Neovim, but in short, it's gamified my coding sessions, and the responsiveness and speed are unmatched. Most importantly, because Neovim runs in the terminal, I'm able to quickly setup my IDE of choice by installing its package and pulling my configs from a repo. 
+There's one problem — enterprise servers, especially for HPC workloads, often do not support the latest versions of Neovim with all the crucial features like language server protocols and community plugins. Fortunately, HPC research clusters and many enterprise server services support a container platform called [Apptainer](https://apptainer.org/docs/user/latest/introduction.html) (formerly Singularity), which enables users to "run complex applications on HPC clusters in a simple, portable, and reproducible way". 
 
-However, with my foray into deep learning and leveraging GPU compute resources — I ran into a problem: HPC clusters like Purdue Anvil, Delta AI, and PACE Phoenix have enterprise operating systems that Neovim is not fully compatible with. Enter [Apptainer](https://apptainer.org/). 
+In this tutorial, I'll show you how to setup the latest version of Neovim and [LazyVim](https://www.lazyvim.org/) for a full-fledged IDE on your own HPC cluster ecosystem.
 
+# Checking for the Apptainer Module
+---
+If you're this far into the tutorial, I'm going to assume that you already have access to your University's HPC resources, and you know how to SSH into a login node. However, feel free to email me or comment below if you need any help!
+
+After successfully connecting to a login node through SSH, you can check if Apptainer is available with `apptainer --version`. Below, I'm connected to the [Purdue Anvil]() cluster and Apptainer is already loaded from the login nodes. 
+
+> Some HPC clusters will not have the Apptainer module available on login nodes (e.g., PACE Phoenix at Georgia Tech). You will have to connect to a computing node before proceeding and use `module load apptainer` to load the module.
+
+![](../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow-3.png)
+
+# Creating a Definition File
+---
+In order to create a custom container for the Apptainer platform, you need read from a custom definition file (.def), which is like a script of packages and parameters that Apptainer will execute and install while creating your container. Below, I have a predefined .def file that installs all the necessary dependencies and installs Neovim version 11.5. 
 
 ```
 Bootstrap: docker
@@ -122,3 +137,32 @@ From: ubuntu:24.04
 
 ```
 
+Copy the code above and paste it into a .def file on the HPC cluster. When you're done, you should have a file called `neovim.def` or something similar on the file system of your cluster.
+
+![](../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow-4.png)
+
+# Creating the Neovim Container
+---
+Finally, we can create the Neovim container using Apptainer. Run the following command to read the definition file, create your container environment, install the dependencies, and install Neovim. 
+
+`apptainer build --fakeroot nvim.sif neovim.def`
+
+This may take a while and you should see all the install and execution steps outlined in the `neovim.def` definition file.
+
+![](../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow-5.png)
+
+# Running Neovim
+---
+After the build process is completed, you will see a new file in your working directory called `nvim.sif`. This is a stand-alone executable container that contains the environment outlined in your definition file. In order to run Neovim, you can simply execute the newly created file with `./nvim.sif`.
+
+![](../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow-6.png)
+
+![](../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow-7.png)
+
+Congratulations! You now have Neovim v11.5 installed on your HPC cluster. Feel free to install your current Neovim .dotfiles. However, for the purposes of this tutorial, we're going to quickly install LazyVim. To install the LazyVim setup, pull the GitHub repository, and execute the .sif file.
+
+```git clone https://github.com/LazyVim/starter ~/.config/nvim && ./nvim.sif```
+
+![](../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow-8.png)
+
+![](../../assets/blog/using-nvim-apptainers-for-my-hpc-workflow/using-nvim-apptainers-for-my-hpc-workflow-9.png)
