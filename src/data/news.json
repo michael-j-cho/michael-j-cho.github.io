@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026.02",
+    "title": "Seismocardiography Pig Hypovolemia Dataset for Signal Quality Indexing and Validated Cardiac Timings",
+    "description": "Nature Scientific Data publication. This study introduces a validated dataset porcine seismocardiogram heartbeats, expertly annotated for cardiac timings and signal quality to benchmark non-invasive monitoring. These high-quality labels address a critical data scarcity, enabling the training of supervised deep learning models to automate signal denoising, feature extraction, and fiducial point detection.",
+    "links": [
+      {
+        "text": "Paper",
+        "url": "https://www.nature.com/articles/s41597-026-06733-2"
+      }
+    ]
+  },
+  {
     "date": "2025.11",
     "title": "IEEE Body Sensor Networks Presentation Los Angeles",
     "description": "Presented research on the quantification of opioid withdrawal through seismocardiogram variability from wearable CardioTag devices.",
