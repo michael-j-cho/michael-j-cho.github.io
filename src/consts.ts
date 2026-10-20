@@ -60,7 +60,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Google Scholar'
   },
   {
-    href: '/files/cv.pdf',
+    href: '/files/cv-full.pdf',
     label: 'CV',
   },
   // {
