@@ -41,7 +41,7 @@ export const NAV_LINKS: SocialLink[] = [
     label: 'About',
   },
   {
-    href: '/files/resume-20260202.pdf',
+    href: '/files/cv.pdf',
     label: 'CV',
   },
 ]
@@ -60,7 +60,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Google Scholar'
   },
   {
-    href: '/files/resume-20260202.pdf',
+    href: '/files/cv.pdf',
     label: 'CV',
   },
   // {
