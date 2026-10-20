@@ -1,5 +1,49 @@
 [
   {
+    "date": "2026.10",
+    "title": "Cylindrical Geodesic Flow Matching for Quasiperiodic Physiological Signal Transformation",
+    "description": "arXiv preprint. This work introduces a flow matching method for paired cardiovascular waveform translation that replaces the standard affine path with a closed-form geodesic on the phase-amplitude cylinder, outperforming interpolation baselines on zero-shot photoplethysmography and limited-support seismocardiography adaptation benchmarks.",
+    "links": [
+      {
+        "text": "Paper",
+        "url": "https://arxiv.org/abs/2610.08510"
+      }
+    ]
+  },
+  {
+    "date": "2026.08",
+    "title": "Towards Monitoring Acute Opioid Withdrawal Severity Using a Multimodal Wearable Chest Patch",
+    "description": "ACM Transactions on Computing for Healthcare. This study characterizes 32 cardiorespiratory features from wearable signals in 16 individuals with opioid use disorder over 7 days, identifying features that differ between high and low withdrawal and classifying withdrawal severity with machine learning.",
+    "links": [
+      {
+        "text": "Paper",
+        "url": "https://dl.acm.org/doi/10.1145/3833425"
+      }
+    ]
+  },
+  {
+    "date": "2026.07",
+    "title": "EffSCG: Real-Time Seismocardiogram Denoising on Edge Devices",
+    "description": "IEEE Journal of Biomedical and Health Informatics. This work presents an optimization framework that lets a deep learning seismocardiogram denoiser run directly on resource-constrained wearables, cutting inference time and memory footprint without substantive accuracy loss.",
+    "links": [
+      {
+        "text": "Paper",
+        "url": "https://ieeexplore.ieee.org/abstract/document/11627325/"
+      }
+    ]
+  },
+  {
+    "date": "2026.06",
+    "title": "SCRIBE: Simultaneous Cardiac and Respiratory Impedance Biomarkers with Electromechanics",
+    "description": "IEEE Sensors Journal. This work presents SCRIBE, a compact, flexible chest patch that concurrently measures cardiac and respiratory mechanics using ECG, seismocardiography, photoplethysmography, and bioimpedance.",
+    "links": [
+      {
+        "text": "Paper",
+        "url": "https://ieeexplore.ieee.org/abstract/document/11569880/"
+      }
+    ]
+  },
+  {
     "date": "2026.02",
     "title": "Seismocardiography Pig Hypovolemia Dataset for Signal Quality Indexing and Validated Cardiac Timings",
     "description": "Nature Scientific Data publication. This study introduces a validated dataset porcine seismocardiogram heartbeats, expertly annotated for cardiac timings and signal quality to benchmark non-invasive monitoring. These high-quality labels address a critical data scarcity, enabling the training of supervised deep learning models to automate signal denoising, feature extraction, and fiducial point detection.",
@@ -18,6 +62,17 @@
       {
         "text": "Poster",
         "url": "/files/bsn-poster-nida-dtw.pdf"
+      }
+    ]
+  },
+  {
+    "date": "2025.10",
+    "title": "Characterizing Central-Autonomic Dynamics during an Episodic Memory Task",
+    "description": "IEEE Transactions on Biomedical Engineering. This study analyzes coupling between the central and autonomic nervous systems in 67 healthy adults during an episodic memory task, using EEG alongside ECG and seismocardiogram signals.",
+    "links": [
+      {
+        "text": "Paper",
+        "url": "https://ieeexplore.ieee.org/abstract/document/11206462/"
       }
     ]
   },

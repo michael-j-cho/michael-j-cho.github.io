@@ -54,6 +54,10 @@ export const NAV_LINKS: SocialLink[] = [
     href: '/about',
     label: 'About',
   },
+  {
+    href: '/files/resume-20260202.pdf',
+    label: 'CV',
+  },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
