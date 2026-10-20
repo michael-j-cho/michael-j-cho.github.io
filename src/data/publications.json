@@ -1,0 +1,81 @@
+[
+  {
+    "title": "Cylindrical Geodesic Flow Matching for Quasiperiodic Physiological Signal Transformation",
+    "authors": ["Onur Selim Kilic", "Afra Nawar", "Cem Okan Yaldiz", "Michael J. Cho", "Ahmet Rasim Emirdagi", "Demet Tangolar", "Amirali Aghazadeh", "Amit J. Shah", "Omer T. Inan"],
+    "venue": "arXiv preprint arXiv:2610.08510",
+    "year": 2026,
+    "type": "preprint",
+    "links": [{ "text": "arXiv", "url": "https://arxiv.org/abs/2610.08510" }]
+  },
+  {
+    "title": "Towards Monitoring Acute Opioid Withdrawal Severity Using a Multimodal Wearable Chest Patch",
+    "authors": ["Vikram Abbaraju", "Farhan N. Rahman", "Michael J. Cho", "Jeffrey C. Liu", "Yi Yang", "Calista E. Murray", "Afra Nawar", "John A. Berkebile", "Joshua Chiok", "Jaiyoun Choi", "Rachel Bull", "Lucy H. Shallenberger", "Viola Vaccarino", "Justine W. Welsh", "Santosh Patel", "Amit J. Shah", "J. Douglas Bremner", "Omer T. Inan"],
+    "venue": "ACM Transactions on Computing for Healthcare",
+    "year": 2026,
+    "type": "journal",
+    "links": [{ "text": "Paper", "url": "https://doi.org/10.1145/3833425" }]
+  },
+  {
+    "title": "EffSCG: An Efficient Framework for Real-Time Seismocardiogram Denoising on Resource-Constrained Edge Devices",
+    "authors": ["Ahmet R. Emirdagi", "Cem O. Yildiz", "Onur S. Kilic", "Michael J. Cho", "Omer T. Inan"],
+    "venue": "IEEE Journal of Biomedical and Health Informatics",
+    "year": 2026,
+    "type": "journal",
+    "links": [{ "text": "Paper", "url": "https://doi.org/10.1109/JBHI.2026.3718375" }]
+  },
+  {
+    "title": "SCRIBE Design and Validation: Simultaneous Cardiac and Respiratory Impedance Biomarkers With Electromechanics",
+    "authors": ["Jacob M. Cook", "Chuoqi Chen", "Fatih B. Inan", "Christopher J. Nichols", "Farhan N. Rahman", "Afra Nawar", "Lara J. Reichelt", "Michael J. Cho", "Yaman Sangar", "Josiah Hester", "Omer T. Inan"],
+    "venue": "IEEE Sensors Journal",
+    "year": 2026,
+    "type": "journal",
+    "links": [{ "text": "Paper", "url": "https://doi.org/10.1109/JSEN.2026.3702932" }]
+  },
+  {
+    "title": "Seismocardiography Pig Hypovolemia Dataset for Signal Quality Indexing and Validated Cardiac Timings",
+    "authors": ["Michael J. Cho", "Cem O. Yaldiz", "Afra Nawar", "Vikram Abbaraju", "Ryan C. Emadi", "Onur S. Kilic", "Zeineb Bouzid", "Farhan N. Rahman", "Chuoqi Chen", "Jacob M. Cook", "Ahmet R. Emirdagi", "Roshan L. Saigal", "Mickey Paulus", "Omer T. Inan"],
+    "venue": "Scientific Data",
+    "year": 2026,
+    "type": "journal",
+    "links": [{ "text": "Paper", "url": "https://doi.org/10.1038/s41597-026-06733-2" }]
+  },
+  {
+    "title": "Quantifying Opioid Withdrawal Through Cardio-Mechanical Variability Using Multi-Modal Wearable Sensors",
+    "authors": ["Michael J. Cho", "Vikram Abbaraju", "Farhan N. Rahman", "Jeffrey C. Liu", "Afra Nawar", "Cali E. Murray", "Yi Yang", "Joshua Chiok", "Jaiyoun Choi", "Rachel Bull", "Lucy H. Shallenberger", "Viola Vaccarino", "Amit J. Shah", "Douglas Bremner", "Omer T. Inan"],
+    "venue": "2025 IEEE 21st International Conference on Body Sensor Networks (BSN)",
+    "year": 2025,
+    "type": "conference",
+    "links": [
+      { "text": "Paper", "url": "https://doi.org/10.1109/BSN66969.2025.11337294" },
+      { "text": "Poster", "url": "/files/bsn-poster-nida-dtw.pdf" }
+    ]
+  },
+  {
+    "title": "Characterizing Central-Autonomic Dynamics During an Episodic Memory Task Using Multi-Modal Neural and Cardiomechanical Signals",
+    "authors": ["Vikram Abbaraju", "Ty Lees", "Michael J. Cho", "Ryan Emadi", "David J. Lin", "John A. Berkebile", "Nigel Lee", "Jena L. Nawfel", "Ryan M. Dougherty", "Rebecca Dunayev", "Michelle A. Karker", "Lia M. Bonacci", "Daniel Mathew", "Tayler D. Mauk", "Jason B. Goodman", "Anna Wexler", "Paola Pedrelli", "Diego A. Pizzagalli", "Daniel G. Dillon", "Andrea K. Webb", "Omer T. Inan"],
+    "venue": "IEEE Transactions on Biomedical Engineering",
+    "year": 2025,
+    "type": "journal",
+    "links": [{ "text": "Paper", "url": "https://doi.org/10.1109/TBME.2025.3622916" }]
+  },
+  {
+    "title": "HELPSE: Homomorphic Encryption-based Lightweight Password Strength Estimation in a Virtual Keyboard System",
+    "authors": ["Michael Cho", "Keewoo Lee", "Sunwoong Kim"],
+    "venue": "Proceedings of the Great Lakes Symposium on VLSI (GLSVLSI '22)",
+    "year": 2022,
+    "type": "conference",
+    "links": [{ "text": "Paper", "url": "https://doi.org/10.1145/3526241.3530338" }]
+  },
+  {
+    "title": "Caring Without Sharing: A Federated Learning Crowdsensing Framework for Diversifying Representation of Cities",
+    "authors": ["Michael Cho", "Afra Mashhadi"],
+    "venue": "International Conference on Mobile and Ubiquitous Systems: Computing, Networking and Services (MobiQuitous)",
+    "year": 2021,
+    "type": "conference",
+    "links": [
+      { "text": "Paper", "url": "https://doi.org/10.1007/978-3-030-94822-1_39" },
+      { "text": "arXiv", "url": "https://arxiv.org/abs/2201.07980" },
+      { "text": "Video", "url": "https://www.youtube.com/watch?v=nOe66CKid-8" }
+    ]
+  }
+]

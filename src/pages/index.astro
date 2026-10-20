@@ -5,7 +5,7 @@ import PageHead from '@/components/PageHead.astro'
 import { ErrorBoundary } from '@/components/react/ErrorBoundary'
 import Skills from '@/components/react/Skills'
 import { buttonVariants } from '@/components/ui/button'
-import { ICON_MAP, SITE, SOCIAL_LINKS } from '@/consts'
+import { ICON_MAP, PERSON_SCHEMA, SITE, SOCIAL_LINKS } from '@/consts'
 import newsItems from '@/data/news.json'
 import Layout from '@/layouts/Layout.astro'
 import { getRecentPosts } from '@/lib/data-utils'
@@ -13,6 +13,8 @@ import type { SocialLink } from '@/types'
 import { Icon } from 'astro-icon/components'
 
 const recentNews = newsItems.slice(0, 4)
+
+const TYPED_ROLES = ['Ph.D. Candidate', 'Applied ML Scientist', 'Researcher', 'Engineer']
 
 // Error handling for fetching recent posts
 let latestPosts: Awaited<ReturnType<typeof getRecentPosts>> = []
@@ -22,24 +24,6 @@ try {
   console.error('Error fetching recent posts:', error)
 }
 
-// Person Schema for homepage SEO
-const personSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: SITE.title,
-  url: SITE.href,
-  description: SITE.description,
-}
-
-// Organization Schema
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: SITE.title,
-  url: SITE.href,
-  description: SITE.description,
-}
-
 // Website Schema
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -47,14 +31,6 @@ const websiteSchema = {
   name: SITE.title,
   url: SITE.href,
   description: SITE.description,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${SITE.href}/blog?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
 }
 ---
 
@@ -62,11 +38,7 @@ const websiteSchema = {
   <PageHead slot="head" title={SITE.title} fullTitle={true} />
 
   <!-- Schema Markup for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(organizationSchema)}
-  />
+  <script type="application/ld+json" set:html={JSON.stringify(PERSON_SCHEMA)} />
   <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
   <!-- Hero Section -->
@@ -96,9 +68,14 @@ const websiteSchema = {
             <div
               class="text-muted-foreground mt-4 max-w-xl text-base leading-relaxed md:text-lg"
             >
-              <h1 class="text-foreground text-2xl font-bold md:text-4xl">
-                <span id="typed-text"></span>
-              </h1>
+              <p class="text-foreground text-2xl font-bold md:text-4xl">
+                <span class="sr-only">{TYPED_ROLES.join(', ')}</span>
+                <span
+                  id="typed-text"
+                  aria-hidden="true"
+                  data-roles={JSON.stringify(TYPED_ROLES)}
+                ></span>
+              </p>
             </div>
           </div>
           <!-- CTA Buttons -->
@@ -405,13 +382,22 @@ const websiteSchema = {
   <script>
     import Typed from 'typed.js'
 
-    const typed = new Typed('#typed-text', {
-      strings: ['Researcher', 'Engineer', 'Ph.D. Student', 'Life-Long Learner'],
-      typeSpeed: 60, // Speed in ms of typing
-      backSpeed: 30, // Speed in ms of deleting
-      backDelay: 1500, // Time to wait before deleting
-      startDelay: 500, // Time to wait before starting
-      loop: true, // Loop the animation
+    let typed: Typed | undefined
+
+    // Module scripts run once per full load; with ClientRouter, re-init on every visit to the homepage.
+    document.addEventListener('astro:page-load', () => {
+      typed?.destroy()
+      typed = undefined
+      const el = document.getElementById('typed-text')
+      if (!el) return
+      typed = new Typed(el, {
+        strings: JSON.parse(el.dataset.roles ?? '[]'),
+        typeSpeed: 60, // Speed in ms of typing
+        backSpeed: 30, // Speed in ms of deleting
+        backDelay: 1500, // Time to wait before deleting
+        startDelay: 500, // Time to wait before starting
+        loop: true, // Loop the animation
+      })
     })
   </script>
 </Layout>

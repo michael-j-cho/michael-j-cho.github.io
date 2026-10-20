@@ -59,23 +59,22 @@
     )
   }
 
-  // Initial load
-  loadGiscus()
+  // astro:page-load also fires on the first load, so it alone covers every visit.
+  // The guard keeps a re-run of this inline script from adding duplicate listeners.
+  if (!window.__giscusListenersAdded) {
+    window.__giscusListenersAdded = true
+    document.addEventListener('astro:page-load', loadGiscus)
 
-  // Re-run on Astro view transitions
-  document.addEventListener('astro:page-load', loadGiscus)
-
-  // Listen for theme changes
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (
-        mutation.type === 'attributes' &&
-        mutation.attributeName === 'data-theme'
-      ) {
-        updateGiscusTheme()
-      }
-    })
-  })
-
-  observer.observe(document.documentElement, { attributes: true })
+    // Listen for theme changes
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === 'attributes' &&
+          mutation.attributeName === 'data-theme'
+        ) {
+          updateGiscusTheme()
+        }
+      })
+    }).observe(document.documentElement, { attributes: true })
+  }
 </script>

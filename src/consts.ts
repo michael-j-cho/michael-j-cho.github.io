@@ -3,8 +3,8 @@ import type { IconMap, SocialLink, Site } from '@/types'
 export const SITE: Site = {
   title: 'Michael Cho',
   description:
-    'Welcome to my website!',
-  href: 'https://michael-j-cho.github.io',
+    'Ph.D. candidate at Georgia Tech building machine learning for wearable cardiomechanical sensing, and Applied Machine Learning Scientist Co-op at WHOOP.',
+  href: 'https://michaelcho.info',
   author: 'michael',
   locale: 'en-US',
   featuredPostCount: 2,
@@ -23,28 +23,14 @@ export const UMAMI = {
   websiteId: import.meta.env.PUBLIC_UMAMI_WEBSITE_ID || '',
 }
 
-// Disqus Comments
-// Get your shortname from https://disqus.com/admin/settings/general/
-// Set it as an environment variable: PUBLIC_DISQUS_SHORTNAME=your-shortname
-export const DISQUS = {
-  shortname: import.meta.env.PUBLIC_DISQUS_SHORTNAME || '',
-}
-
-// Brevo Newsletter
-// Get your API key from https://app.brevo.com/settings/keys/api
-// Set it as an environment variable: BREVO_API_KEY=your-api-key
-// Optional: Set BREVO_LIST_ID to automatically add subscribers to a specific list
-// Optional: Set BREVO_TEMPLATE_ID for double opt-in confirmation email (default: 5)
-export const BREVO = {
-  apiKey: import.meta.env.BREVO_API_KEY || '',
-  listId: import.meta.env.BREVO_LIST_ID || '',
-  templateId: import.meta.env.BREVO_TEMPLATE_ID || '5',
-}
-
 export const NAV_LINKS: SocialLink[] = [
   {
     href: '/blog',
     label: 'Blog',
+  },
+  {
+    href: '/publications',
+    label: 'Publications',
   },
   {
     href: '/news',
@@ -102,9 +88,22 @@ export const ICON_MAP: IconMap = {
   RSS: 'lucide:rss',
 }
 
-// Newsletter consent text (centralized for GDPR compliance)
-export const NEWSLETTER_CONSENT_TEXT = {
-  text: 'I agree to receive newsletter emails.',
-  privacyLink: '/privacy',
-  privacyText: 'Privacy Policy',
+// Shared by the homepage and About page so both emit the same Person entity
+export const PERSON_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.title,
+  url: SITE.href,
+  image: `${SITE.href}/profile.jpg`,
+  description: SITE.description,
+  jobTitle: 'Applied Machine Learning Scientist Co-op',
+  worksFor: { '@type': 'Organization', name: 'WHOOP', url: 'https://www.whoop.com' },
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Georgia Institute of Technology',
+    url: 'https://www.gatech.edu',
+  },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Washington Bothell' },
+  award: 'NSF Graduate Research Fellowship',
+  sameAs: SOCIAL_LINKS.filter((link) => link.href.startsWith('http')).map((link) => link.href),
 }

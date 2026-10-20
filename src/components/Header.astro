@@ -16,7 +16,7 @@ const isExternalLink = (href: string) => {
     <Link href="/" class="flex shrink-0 items-center gap-2 text-xl font-medium" data-astro-reload>
       <img 
         src="/static/logo.svg" 
-        alt="Logo" 
+        alt="Michael Cho, home" 
         class="size-8 dark:block hidden" 
         width="32" 
         height="32"
@@ -26,7 +26,7 @@ const isExternalLink = (href: string) => {
       />
       <img 
         src="/static/logod.svg" 
-        alt="Logo" 
+        alt="Michael Cho, home" 
         class="size-8 dark:hidden block" 
         width="32" 
         height="32"
@@ -40,21 +40,16 @@ const isExternalLink = (href: string) => {
       <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex">
         {NAV_LINKS.map((item) => {
           const isExternal = isExternalLink(item.href)
-          const isInsideLink = item.label.toLowerCase() === 'inside'
           return (
             <Link 
               href={item.href} 
-              class={isInsideLink 
-                ? "text-primary hover:text-primary/80 capitalize transition-colors flex items-center gap-1.5 font-medium" 
-                : "text-foreground/60 hover:text-foreground/80 capitalize transition-colors flex items-center gap-1.5"}
+              class="text-foreground/60 hover:text-foreground/80 capitalize transition-colors flex items-center gap-1.5"
             >
               <span>{item.label}</span>
               {isExternal && (
                 <Icon 
                   name="lucide:external-link" 
-                  class={isInsideLink 
-                    ? "size-3.5 opacity-80 flex-shrink-0 text-primary" 
-                    : "size-3.5 opacity-70 flex-shrink-0"} 
+                  class="size-3.5 opacity-70 flex-shrink-0"
                   aria-hidden="true"
                 />
               )}

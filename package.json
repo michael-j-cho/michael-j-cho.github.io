@@ -2,12 +2,12 @@
   "name": "michael-cho-website",
   "type": "module",
   "version": "1.0.0",
-  "description": "An enhanced version of astro-erudite with newsletter integration, Disqus comments, analytics support, and additional features",
+  "description": "Personal website of Michael Cho",
   "author": "Michael Cho",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/meroxdotdev/merox-erudite.git"
+    "url": "https://github.com/michael-j-cho/michael-j-cho.github.io.git"
   },
   "keywords": [
     "astro",

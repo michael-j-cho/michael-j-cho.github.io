@@ -1,25 +1,15 @@
 ---
 import PageHead from '@/components/PageHead.astro'
-import { SITE } from '@/consts'
+import { PERSON_SCHEMA } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
-// Import the Markdown file as a component.
-// Note: Ensure the path matches your actual folder structure (e.g., ../content/...)
-import { Content as AboutContent } from '../content/authors/about.md'
-
-// Person Schema for About page SEO
-const personSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: SITE.title,
-  url: SITE.href,
-  description: SITE.description,
-}
+// Lives outside src/content/authors so it doesn't generate a second author page
+import { Content as AboutContent } from '../content/about.md'
 ---
 
 <Layout class="max-w-3xl">
-  <PageHead slot="head" title="About" />
+  <PageHead slot="head" title="About" description="About Michael Cho: Ph.D. candidate at Georgia Tech and Applied Machine Learning Scientist Co-op at WHOOP." />
 
-  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(PERSON_SCHEMA)} />
 
   <section class="flex flex-col gap-8">
     <div class="flex flex-col gap-4">

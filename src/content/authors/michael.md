@@ -1,5 +1,5 @@
 ---
 name: 'Michael Cho'
 avatar: '/profile.jpg'
-bio: 'Researching at Georgia Tech Inan Research Lab, training for the platform, and reading into the future. A Ph.D. student and record-holding weightlifter focused on turning hardship into insight through science and philosophy.'
+bio: 'Ph.D. candidate in the Inan Research Lab at Georgia Tech, Applied Machine Learning Scientist Co-op at WHOOP, and NSF Graduate Research Fellow. Also a record-holding weightlifter focused on turning hardship into insight through science and philosophy.'
 ---

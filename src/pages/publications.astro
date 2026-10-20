@@ -1,0 +1,122 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import { SITE, SOCIAL_LINKS } from '@/consts'
+import publications from '@/data/publications.json'
+
+interface Link {
+  text: string
+  url: string
+}
+
+interface Publication {
+  title: string
+  authors: string[]
+  venue: string
+  year: number
+  type: 'journal' | 'conference' | 'preprint'
+  links: Link[]
+}
+
+const DESCRIPTION =
+  'Peer-reviewed papers and preprints by Michael Cho on wearable sensing, cardiomechanical signals, and machine learning.'
+
+// Crossref lists the same person as "Michael J. Cho" or "Michael Cho" depending on the venue
+const isSelf = (author: string) => /^Michael (J\. )?Cho$/.test(author)
+
+const scholarUrl = SOCIAL_LINKS.find((link) => link.label === 'Google Scholar')?.href
+
+const items = publications as Publication[]
+const years = [...new Set(items.map((pub) => pub.year))].sort((a, b) => b - a)
+
+const publicationsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `Publications | ${SITE.title}`,
+  description: DESCRIPTION,
+  url: `${SITE.href}/publications`,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: items.map((pub, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'ScholarlyArticle',
+        headline: pub.title,
+        author: pub.authors.map((name) => ({ '@type': 'Person', name })),
+        datePublished: String(pub.year),
+        isPartOf: pub.venue,
+        url: pub.links[0]?.url,
+      },
+    })),
+  },
+}
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="Publications" description={DESCRIPTION} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(publicationsSchema)} />
+
+  <Breadcrumbs items={[{ label: 'Publications', icon: 'lucide:book-open' }]} />
+
+  <section class="flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold">Publications</h1>
+        {scholarUrl && (
+          <p class="text-sm text-muted-foreground font-mono mt-1">
+            Also on{' '}
+            <a href={scholarUrl} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+              Google Scholar
+            </a>
+          </p>
+        )}
+      </div>
+    </div>
+
+    {years.map((year) => (
+      <div class="flex flex-col">
+        <h2 class="text-sm font-mono font-bold text-primary bg-primary/10 px-2 py-1 rounded self-start">
+          {year}
+        </h2>
+        {items
+          .filter((pub) => pub.year === year)
+          .map((pub, index, group) => (
+            <article class={`flex flex-col gap-2 py-6 ${index !== group.length - 1 ? 'border-b border-border' : ''}`}>
+              <h3 class="text-lg font-semibold leading-tight">{pub.title}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">
+                {pub.authors.map((author, i) => (
+                  <>
+                    {isSelf(author) ? <strong class="text-foreground">{author}</strong> : author}
+                    {i < pub.authors.length - 1 && ', '}
+                  </>
+                ))}
+              </p>
+              <p class="text-sm">
+                <em>{pub.venue}</em>
+                <span class="ml-2 text-xs font-mono uppercase tracking-wider text-muted-foreground border border-border rounded px-1.5 py-0.5">
+                  {pub.type}
+                </span>
+              </p>
+              <div class="flex flex-wrap gap-x-4 gap-y-2 mt-1">
+                {pub.links.map((link) => (
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${link.text}: ${pub.title} (opens in new tab)`}
+                    class="text-xs font-medium text-primary hover:underline flex items-center gap-1"
+                  >
+                    {link.text}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))}
+      </div>
+    ))}
+  </section>
+</Layout>

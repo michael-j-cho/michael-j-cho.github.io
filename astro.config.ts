@@ -19,8 +19,7 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  site: 'https://michael-j-cho.github.io',
-  // Static output - API routes are handled by Cloudflare Pages Functions in /functions folder
+  site: 'https://michaelcho.info',
   integrations: [
     expressiveCode({
       themes: ['github-light', 'github-dark'],
@@ -67,7 +66,10 @@ export default defineConfig({
     }),
     mdx(),
     react(),
-    sitemap(),
+    sitemap({
+      // Author and tag pages are noindex, so keep them out of the sitemap too
+      filter: (page) => !/\/(authors|tags)\//.test(new URL(page).pathname),
+    }),
     icon(),
   ],
   vite: {

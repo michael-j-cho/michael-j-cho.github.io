@@ -4,25 +4,47 @@ import { SITE } from '@/consts'
 interface Props {
   title?: string
   description?: string
+  image?: string
   noindex?: boolean
   fullTitle?: boolean // If true, use title as-is without appending site name
 }
 
 const {
   title = SITE.title,
-  description: _description, // Unused but kept for API consistency
+  description = SITE.description,
+  image = '/og/site.png',
   noindex = false,
   fullTitle = false,
 } = Astro.props
+
+const docTitle = fullTitle
+  ? title
+  : title && title !== SITE.title
+    ? `${title} - ${SITE.title}`
+    : SITE.title
+const desc =
+  description.length > 160 ? `${description.slice(0, 157)}…` : description
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
+const ogImage = new URL(image, Astro.site).href
 ---
 
-<!-- Minimal head helpers to avoid duplicates with Head.astro -->
-{(() => {
-  const docTitle = fullTitle
-    ? title
-    : title && title !== SITE.title
-      ? `${title} - ${SITE.title}`
-      : SITE.title
-  return <title>{docTitle}</title>
-})()}
+<!-- Page-level meta for non-post pages; blog posts use PostHead instead -->
+<title>{docTitle}</title>
+<meta name="title" content={docTitle} />
+<meta name="description" content={desc} />
+<link rel="canonical" href={canonicalURL} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.title} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={docTitle} />
+<meta property="og:description" content={desc} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={docTitle} />
+<meta name="twitter:description" content={desc} />
+<meta name="twitter:image" content={ogImage} />

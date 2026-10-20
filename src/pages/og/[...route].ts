@@ -7,9 +7,19 @@ const contentPagesMap = Object.entries(contentPages).reduce((acc, [path, page]) 
   return { ...acc, [newPath]: page }
 }, {})
 
+// Site-wide default share card (/og/site.png) for pages that aren't content files
+const sitePage = {
+  '/site.md': {
+    frontmatter: {
+      title: 'Michael Cho',
+      description: 'Ph.D. Candidate, Georgia Tech  ·  Applied ML Scientist Co-op, WHOOP',
+    },
+  },
+}
+
 export const { getStaticPaths, GET } = OGImageRoute({
   param: 'route',
-  pages: contentPagesMap,
+  pages: { ...contentPagesMap, ...sitePage },
   getImageOptions: (_path, page) => ({
     title: page.frontmatter.title || page.frontmatter.name || '',
     description: page.frontmatter.description || '',

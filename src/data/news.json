@@ -46,7 +46,7 @@
   {
     "date": "2026.02",
     "title": "Seismocardiography Pig Hypovolemia Dataset for Signal Quality Indexing and Validated Cardiac Timings",
-    "description": "Nature Scientific Data publication. This study introduces a validated dataset porcine seismocardiogram heartbeats, expertly annotated for cardiac timings and signal quality to benchmark non-invasive monitoring. These high-quality labels address a critical data scarcity, enabling the training of supervised deep learning models to automate signal denoising, feature extraction, and fiducial point detection.",
+    "description": "Scientific Data. This study introduces a validated dataset of porcine seismocardiogram heartbeats, expertly annotated for cardiac timings and signal quality to benchmark non-invasive monitoring. These high-quality labels address a critical data scarcity, enabling the training of supervised deep learning models to automate signal denoising, feature extraction, and fiducial point detection.",
     "links": [
       {
         "text": "Paper",
@@ -56,7 +56,7 @@
   },
   {
     "date": "2025.11",
-    "title": "IEEE Body Sensor Networks Presentation Los Angeles",
+    "title": "IEEE Body Sensor Networks Presentation in Los Angeles",
     "description": "Presented research on the quantification of opioid withdrawal through seismocardiogram variability from wearable CardioTag devices.",
     "links": [
       {
@@ -78,7 +78,7 @@
   },
   {
     "date": "2025.08",
-    "title": "Quantifying Opioid Withdrawal through Cardio-mechanical Variability using Multi-modal Wearable Sensors",
+    "title": "Quantifying Opioid Withdrawal through Cardio-mechanical Variability using Multimodal Wearable Sensors",
     "description": "IEEE BSN conference. This study demonstrates a significant correlation between cardio-mechanical variability (SCG signals) and subjective withdrawal severity, proposing a new objective biomarker for monitoring recovery.",
     "links": [
       {
@@ -90,7 +90,7 @@
   {
     "date": "2024.06",
     "title": "Seven ECE Graduates Receive NSF Research Fellowship",
-    "description": "Featured in an article by Georgia Tech's School of Electrical and Computer Engineering highlighting the recipients of the prestigious NSF Research Fellowship.",
+    "description": "Featured in an article by Georgia Tech's School of Electrical and Computer Engineering highlighting the recipients of the NSF Research Fellowship.",
     "links": [
       {
         "text": "Article",
