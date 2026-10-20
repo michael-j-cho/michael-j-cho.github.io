@@ -14,6 +14,7 @@
     "venue": "ACM Transactions on Computing for Healthcare",
     "year": 2026,
     "type": "journal",
+    "highlight": "ACM HEALTH 2026",
     "links": [{ "text": "Paper", "url": "https://doi.org/10.1145/3833425" }]
   },
   {
@@ -22,6 +23,7 @@
     "venue": "IEEE Journal of Biomedical and Health Informatics",
     "year": 2026,
     "type": "journal",
+    "highlight": "IEEE JBHI 2026",
     "links": [{ "text": "Paper", "url": "https://doi.org/10.1109/JBHI.2026.3718375" }]
   },
   {
@@ -30,6 +32,7 @@
     "venue": "IEEE Sensors Journal",
     "year": 2026,
     "type": "journal",
+    "highlight": "IEEE Sensors Journal 2026",
     "links": [{ "text": "Paper", "url": "https://doi.org/10.1109/JSEN.2026.3702932" }]
   },
   {
@@ -38,6 +41,7 @@
     "venue": "Scientific Data",
     "year": 2026,
     "type": "journal",
+    "highlight": "Scientific Data 2026",
     "links": [{ "text": "Paper", "url": "https://doi.org/10.1038/s41597-026-06733-2" }]
   },
   {
@@ -46,6 +50,7 @@
     "venue": "2025 IEEE 21st International Conference on Body Sensor Networks (BSN)",
     "year": 2025,
     "type": "conference",
+    "highlight": "IEEE BSN 2025",
     "links": [
       { "text": "Paper", "url": "https://doi.org/10.1109/BSN66969.2025.11337294" },
       { "text": "Poster", "url": "/files/bsn-poster-nida-dtw.pdf" }
@@ -57,6 +62,7 @@
     "venue": "IEEE Transactions on Biomedical Engineering",
     "year": 2025,
     "type": "journal",
+    "highlight": "IEEE TBME 2025",
     "links": [{ "text": "Paper", "url": "https://doi.org/10.1109/TBME.2025.3622916" }]
   },
   {
@@ -65,6 +71,7 @@
     "venue": "Proceedings of the Great Lakes Symposium on VLSI (GLSVLSI '22)",
     "year": 2022,
     "type": "conference",
+    "highlight": "ACM GLSVLSI 2022",
     "links": [{ "text": "Paper", "url": "https://doi.org/10.1145/3526241.3530338" }]
   },
   {
@@ -73,6 +80,7 @@
     "venue": "International Conference on Mobile and Ubiquitous Systems: Computing, Networking and Services (MobiQuitous)",
     "year": 2021,
     "type": "conference",
+    "highlight": "EAI MobiQuitous 2021",
     "links": [
       { "text": "Paper", "url": "https://doi.org/10.1007/978-3-030-94822-1_39" },
       { "text": "arXiv", "url": "https://arxiv.org/abs/2201.07980" },

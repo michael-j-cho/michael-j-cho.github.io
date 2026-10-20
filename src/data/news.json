@@ -2,7 +2,7 @@
   {
     "date": "2026.10",
     "title": "Cylindrical Geodesic Flow Matching for Quasiperiodic Physiological Signal Transformation",
-    "description": "arXiv preprint. This work introduces a flow matching method for paired cardiovascular waveform translation that replaces the standard affine path with a closed-form geodesic on the phase-amplitude cylinder, outperforming interpolation baselines on zero-shot photoplethysmography and limited-support seismocardiography adaptation benchmarks.",
+    "description": "NeurIPS 2026 Main Conference, Sydney. This work introduces a flow matching method for paired cardiovascular waveform translation that replaces the standard affine path with a closed-form geodesic on the phase-amplitude cylinder, outperforming interpolation baselines on zero-shot photoplethysmography and limited-support seismocardiography adaptation benchmarks.",
     "links": [
       {
         "text": "Paper",
