@@ -40,6 +40,8 @@ const technologies: Technologies = {
     { text: 'VNC', logo: 'lucide:screen-share' },
     { text: 'Nginx', logo: 'simple-icons:nginx' },
     { text: 'Apache', logo: 'simple-icons:apache' },
+    { text: 'EZDeploy', logo: 'lucide:rocket' },
+    { text: 'Datadog', logo: 'simple-icons:datadog' },
   ],
   'Data Science, AI & Graphics': [
     { text: 'PyTorch', logo: 'simple-icons:pytorch' },
@@ -60,6 +62,11 @@ const technologies: Technologies = {
     { text: 'Slurm', logo: 'lucide:cpu' },
     { text: 'HPC', logo: 'lucide:layers' },
     { text: 'Elastic', logo: 'simple-icons:elasticsearch' },
+    { text: 'Snowflake', logo: 'simple-icons:snowflake' },
+    { text: 'Outerbounds', logo: 'lucide:workflow' },
+    { text: 'Metaflow', logo: 'lucide:workflow' },
+    { text: 'MLflow', logo: 'simple-icons:mlflow' },
+    { text: 'ONNX', logo: 'simple-icons:onnx' },
   ],
   'Development, Languages & Tools': [
     { text: 'Python', logo: 'simple-icons:python' },
@@ -84,6 +91,17 @@ const technologies: Technologies = {
     { text: 'Obsidian', logo: 'simple-icons:obsidian' },
     { text: 'Latex', logo: 'simple-icons:latex' },
     { text: 'Overleaf', logo: 'simple-icons:overleaf' },
+    { text: 'Claude Code', logo: 'simple-icons:claude' },
+    { text: 'Anaconda', logo: 'simple-icons:anaconda' },
+    { text: 'Poetry', logo: 'simple-icons:poetry' },
+    { text: 'FastAPI', logo: 'simple-icons:fastapi' },
+    { text: 'Pydantic', logo: 'simple-icons:pydantic' },
+    { text: 'Pytest', logo: 'simple-icons:pytest' },
+    { text: 'Ruff', logo: 'simple-icons:ruff' },
+    { text: 'CircleCI', logo: 'simple-icons:circleci' },
+    { text: 'GitHub Actions', logo: 'simple-icons:githubactions' },
+    { text: 'Jira', logo: 'simple-icons:jira' },
+    { text: 'Confluence', logo: 'simple-icons:confluence' },
   ],
 }
 
